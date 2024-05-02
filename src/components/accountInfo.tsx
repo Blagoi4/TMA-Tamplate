@@ -1,12 +1,15 @@
 import "../App.css";
-import { HttpClient, Api, Account } from "tonapi-sdk-js";
+import { HttpClient, Api } from "tonapi-sdk-js";
 import { useEffect, useState } from "react";
 import { useTonConnect } from "../hooks/useTonConnect";
 
+import { useSlicedAddress } from "../hooks/useSlicedAddress";
+import { CHAIN } from "@tonconnect/ui-react";
+
 const AccountInfo = () => {
   const [balance, setBalance] = useState<null | number>(null);
-  const [addressWallet, setAddressWallet] = useState<string | null>("");
-  const { connected } = useTonConnect();
+  const { connected, address } = useTonConnect();
+  const slicedAddress = useSlicedAddress(address, CHAIN.TESTNET);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,26 +28,24 @@ const AccountInfo = () => {
       });
 
       const client = new Api(httpClient);
-
-      const address = "UQC27V3iUgelvnGZChU9PV-XUYO6MEo5l5MnPZIn4XoaK0XN";
-
-      try {
-        const accountInfo: Account = await client.accounts.getAccount(address);
-        setBalance(accountInfo.balance);
-        setAddressWallet(accountInfo.address);
-      } catch (error) {
-        console.error("Error fetching jetton info:", error);
+      if (address !== null) {
+        try {
+          const accountInfo = await client.accounts.getAccount(address);
+          setBalance(accountInfo.balance);
+        } catch (error) {
+          console.error("Error fetching jetton info:", error);
+        }
       }
     };
 
     fetchData();
-  }, []);
+  }, [address, connected]);
 
   return (
     <>
       <div className="Card">
         <b>Wallet Address</b>
-        <div className="Hint">{connected ? addressWallet : "---"}</div>
+        <div className="Hint">{connected ? slicedAddress : "---"}</div>
       </div>
 
       <div className="Card">

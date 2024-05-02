@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https:///Blagoi4-github.io/TWA-Template",
+  "homepage": "https:///Blagoi4.github.io/TWA-Template",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -17,11 +17,14 @@
     "@ton/core": "^0.56.3",
     "@ton/crypto": "^3.2.0",
     "@ton/ton": "^13.11.1",
+    "@tonclient/core": "^1.30.0",
+    "@tonclient/lib-node": "^1.30.0",
     "@tonconnect/ui-react": "^2.0.2",
     "@twa-dev/sdk": "^7.0.0",
     "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "ton": "^13.9.0",
     "tonapi-sdk-js": "^1.0.9",
     "vite-plugin-node-polyfills": "^0.21.0"
   },

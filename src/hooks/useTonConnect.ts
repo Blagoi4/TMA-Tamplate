@@ -4,10 +4,9 @@ import { Address, Sender, SenderArguments } from "@ton/core";
 export function useTonConnect(): {
   sender: Sender;
   connected: boolean;
-  wallet: string | null;
   network: string | null;
+  address: string | null;
 } {
-  
   const [tonConnectUI] = useTonConnectUI();
   const wallet = useTonWallet();
 
@@ -30,7 +29,7 @@ export function useTonConnect(): {
         : undefined,
     },
     connected: tonConnectUI.connected,
-    wallet: wallet?.account.address ?? null,
+    address: wallet?.account.address ?? null,
     network: wallet?.account.chain ?? null,
   };
 }

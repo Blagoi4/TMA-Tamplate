@@ -3,7 +3,7 @@ import { CHAIN, TonConnectButton } from "@tonconnect/ui-react";
 import { useTonConnect } from "./hooks/useTonConnect";
 import AccountInfo from "./components/accountInfo";
 import { useCounterContract } from "./hooks/useCounterContract";
-import '@twa-dev/sdk'
+import "@twa-dev/sdk";
 
 function App() {
   const { connected, network } = useTonConnect();
