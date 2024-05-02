@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https:///Blagoi4-github.io/TMA-Tamplate",
+  "homepage": "https:///Blagoi4-github.io/TWA-Template",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deplov": "gh-papes -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@orbs-network/ton-access": "^2.3.3",
