@@ -1,7 +1,7 @@
 import "./App.css";
 import { CHAIN, TonConnectButton } from "@tonconnect/ui-react";
 import { useTonConnect } from "./hooks/useTonConnect";
-import AccountInfo from "./components/accountInfo";
+import AccountInfo from "./components/AccountInfo";
 import { useCounterContract } from "./hooks/useCounterContract";
 import "@twa-dev/sdk";
 
@@ -9,7 +9,6 @@ function App() {
   const { connected, network } = useTonConnect();
   const { sendIncrement } = useCounterContract();
 
-  console.log();
   return (
     <div className="App">
       <div>

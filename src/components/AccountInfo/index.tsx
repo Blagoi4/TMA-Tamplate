@@ -1,13 +1,13 @@
-import "../App.css";
+import "../../App.css";
 import { HttpClient, Api } from "tonapi-sdk-js";
 import { useEffect, useState } from "react";
-import { useTonConnect } from "../hooks/useTonConnect";
-
-import { useSlicedAddress } from "../hooks/useSlicedAddress";
+import { useTonConnect } from "../../hooks/useTonConnect";
+import { useSlicedAddress } from "../../hooks/useSlicedAddress";
 import { CHAIN } from "@tonconnect/ui-react";
 
 const AccountInfo = () => {
   const [balance, setBalance] = useState<null | number>(null);
+  const [getJettonBalance, setGetJettonBalance] = useState<null | number>(null);
   const { connected, address } = useTonConnect();
   const slicedAddress = useSlicedAddress(address, CHAIN.TESTNET);
 
@@ -28,10 +28,17 @@ const AccountInfo = () => {
       });
 
       const client = new Api(httpClient);
+
       if (address !== null) {
         try {
           const accountInfo = await client.accounts.getAccount(address);
-          setBalance(accountInfo.balance);
+          const jettonsInfo = await client.accounts.getAccountJettonsBalances(
+            address
+          );
+          const balanceAccount = accountInfo.balance / Math.pow(10, 9);
+          const balanceJettons = jettonsInfo.balances;
+          setBalance(balanceAccount);
+          setGetJettonBalance(Number(balanceJettons));
         } catch (error) {
           console.error("Error fetching jetton info:", error);
         }
@@ -51,6 +58,10 @@ const AccountInfo = () => {
       <div className="Card">
         <b>Balance</b>
         <div>{connected ? balance : "---"}</div>
+      </div>
+      <div className="Card">
+        <b>Balance Jettons</b>
+        <div>{getJettonBalance}</div>
       </div>
     </>
   );
