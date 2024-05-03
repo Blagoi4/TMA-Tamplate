@@ -52,6 +52,7 @@ const AccountInfo = () => {
     <>
       <div className="Card">
         <b>Wallet Address</b>
+        {getJettonBalance ? <span>&#127942;</span> : ""}
         <div className="Hint">{connected ? slicedAddress : "---"}</div>
       </div>
 
@@ -61,7 +62,7 @@ const AccountInfo = () => {
       </div>
       <div className="Card">
         <b>Balance Jettons</b>
-        <div>{getJettonBalance}</div>
+        <div>{connected ? getJettonBalance : "---"}</div>
       </div>
     </>
   );
