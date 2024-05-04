@@ -31,7 +31,7 @@ const AccountInfo = () => {
         },
       });
 
-      // const testAddress = "UQBxLLK2E-3q_Kyee3mxiOPTh-ohxBXW5OTAz7_6arcDHYMg";
+      
 
       const client = new Api(httpClient);
 
