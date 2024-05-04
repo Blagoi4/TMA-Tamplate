@@ -1,0 +1,26 @@
+.Jettons-List-Wrappers {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px;
+}
+
+.Jettons-List-Wrappers__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.Jettons-List-Wrappers__balance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Jettons-List-Wrappers__img {
+  display: flex;
+  border-radius: 15px;
+}
+.Jettons-List-Wrappers__jettons_name {
+  padding-left: 10px;
+}
