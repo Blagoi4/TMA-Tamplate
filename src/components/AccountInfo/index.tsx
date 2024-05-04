@@ -31,15 +31,15 @@ const AccountInfo = () => {
         },
       });
 
-      const testAddress = "UQBxLLK2E-3q_Kyee3mxiOPTh-ohxBXW5OTAz7_6arcDHYMg";
+      // const testAddress = "UQBxLLK2E-3q_Kyee3mxiOPTh-ohxBXW5OTAz7_6arcDHYMg";
 
       const client = new Api(httpClient);
 
       if (address !== null) {
         try {
-          const accountInfo = await client.accounts.getAccount(testAddress);
+          const accountInfo = await client.accounts.getAccount(address);
           const jettonsInfo = await client.accounts.getAccountJettonsBalances(
-            testAddress
+            address
           );
           const balanceAccount = accountInfo.balance / Math.pow(10, 9);
           setBalance(balanceAccount);
@@ -82,7 +82,7 @@ const AccountInfo = () => {
         <b></b>
         <div>
           <ul>
-            {loading
+            {loading 
               ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 getJettonBalance.map((item: any, index: number) => {
                   if (item.balance > 0 && item.jetton) {
@@ -117,7 +117,7 @@ const AccountInfo = () => {
                   }
                   return null;
                 })
-              : "Loading..."}
+              : "Loading..." }
           </ul>
         </div>
       </div>

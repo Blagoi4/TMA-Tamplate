@@ -4,7 +4,7 @@ import { useTonConnect } from "./useTonConnect";
 
 const useTonClientAddress = () => {
   const { address } = useTonConnect();
-  const [client, setClient] = useState<Api<never> | null>(null); // Укажите тип данных безопасности
+  const [client, setClient] = useState<Api<never> | null>(null); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +20,7 @@ const useTonClientAddress = () => {
         },
       });
 
-      const newClient = new Api<never>(httpClient); // Укажите тип данных безопасности
+      const newClient = new Api<never>(httpClient); 
       setClient(newClient);
     };
 
