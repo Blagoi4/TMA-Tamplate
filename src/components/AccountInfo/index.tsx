@@ -31,14 +31,14 @@ const AccountInfo = () => {
 
       const addressBoltJetton =
         "0:f4bdd480fcd79d47dbaf6e037d1229115feb2e7ac0f119e160ebd5d031abdf2e";
-   
+      const testAddress = "UQBxLLK2E-3q_Kyee3mxiOPTh-ohxBXW5OTAz7_6arcDHYMg";
 
       const client = new Api(httpClient);
-      if (address !== null) {
+      if (testAddress !== null) {
         try {
-          const accountInfo = await client.accounts.getAccount(address);
+          const accountInfo = await client.accounts.getAccount(testAddress);
           const jettonsInfo = await client.accounts.getAccountJettonsBalances(
-            address
+            testAddress
           );
           const balanceAccount = accountInfo.balance / Math.pow(10, 9);
           setBalance(balanceAccount);
@@ -88,6 +88,7 @@ const AccountInfo = () => {
       <div className="Card">
         <b></b>
         <div>
+        
           <ul>
             {loading
               ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -100,15 +101,22 @@ const AccountInfo = () => {
                       >
                         <div className="Jettons-List-Wrappers__info">
                           {item.jetton?.image ? (
-                            <img
-                              className="Jettons-List-Wrappers__img"
-                              src={item.jetton.image}
-                              onError={() => {
-                                item.jetton.image = !item.jetton.image;
-                              }}
-                            />
+                            <div className="Jettons-List-Wrappers__img__wrapper">
+                              <picture>
+                                {" "}
+                                <img
+                                  className="Jettons-List-Wrappers__img"
+                                  src={item.jetton.image}
+                                  onError={() => {
+                                    item.jetton.image = !item.jetton.image;
+                                  }}
+                                  // style={{width:'100%', height: 'auto'}}
+                                />
+                              </picture>
+                            </div>
                           ) : (
                             <div
+                              className="Jettons-List-Wrappers__placeholder"
                               style={{
                                 backgroundColor: item.jetton?.image
                                   ? ""
@@ -116,8 +124,8 @@ const AccountInfo = () => {
                                       (index % Object.keys(listColor).length) +
                                         1
                                     ],
-                                height: "40px",
-                                width: "40px",
+                                // height: "40px",
+                                // width: "40px",
                                 borderRadius: "50%",
                               }}
                             />

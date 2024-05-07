@@ -4,6 +4,10 @@
   padding: 15px 15px;
 }
 
+.Card img {
+  filter: brightness(60%);
+}
+
 .Jettons-List-Wrappers__info {
   display: flex;
   justify-content: center;
@@ -18,14 +22,15 @@
 }
 
 .Jettons-List-Wrappers__img {
-  display: flex;
-  height: 40px;
-  width: 40px;
+  max-width: 40px;
+  height: auto;
   border-radius: 50%;
+  overflow: hidden;
+}
+.Jettons-List-Wrappers__img__wrapper {
+  object-fit: cover;
+  overflow: hidden;
 }
 .Jettons-List-Wrappers__jettons_name {
   padding-left: 10px;
 }
-
-
-
