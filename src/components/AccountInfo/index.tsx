@@ -31,14 +31,14 @@ const AccountInfo = () => {
 
       const addressBoltJetton =
         "0:f4bdd480fcd79d47dbaf6e037d1229115feb2e7ac0f119e160ebd5d031abdf2e";
-      const testAddress = "UQBxLLK2E-3q_Kyee3mxiOPTh-ohxBXW5OTAz7_6arcDHYMg";
+   
 
       const client = new Api(httpClient);
-      if (testAddress !== null) {
+      if (address !== null) {
         try {
-          const accountInfo = await client.accounts.getAccount(testAddress);
+          const accountInfo = await client.accounts.getAccount(address);
           const jettonsInfo = await client.accounts.getAccountJettonsBalances(
-            testAddress
+            address
           );
           const balanceAccount = accountInfo.balance / Math.pow(10, 9);
           setBalance(balanceAccount);
