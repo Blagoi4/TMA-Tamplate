@@ -18,6 +18,7 @@ const AccountInfo = () => {
     const fetchData = async () => {
       const token =
         "AFFOSTQDZOETPHQAAAAJUQPLAAXFLUJ6KZA7GZHFOYCADVDZ5FRTXO35LCI3DZFDACDB4ZA";
+  
       const httpClient = new HttpClient({
         baseUrl: "https://tonapi.io",
         baseApiParams: {
@@ -31,7 +32,6 @@ const AccountInfo = () => {
 
       const addressBoltJetton =
         "0:f4bdd480fcd79d47dbaf6e037d1229115feb2e7ac0f119e160ebd5d031abdf2e";
-      
 
       const client = new Api(httpClient);
       if (address !== null) {

@@ -5,6 +5,7 @@ import { TonConnectUIProvider } from "@tonconnect/ui-react";
 
 
 
+
 const manifestUrl =
   "https://raw.githubusercontent.com/Blagoi4/TWA-Template/main/tonconnect-manifest.json";
 

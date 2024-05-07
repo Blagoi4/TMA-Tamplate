@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        {network ? (network === CHAIN.MAINNET ? "mainnet" : "testnet") : "N/A"}
+        {network ? (network === CHAIN.MAINNET ? "mainnet" : "testnet") : ""}
       </div>
       <div className="Container">
         <TonConnectButton />
