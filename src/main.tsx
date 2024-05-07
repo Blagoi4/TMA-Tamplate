@@ -3,6 +3,8 @@ import App from "./App";
 import "./index.css";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 
+
+
 const manifestUrl =
   "https://raw.githubusercontent.com/Blagoi4/TWA-Template/main/tonconnect-manifest.json";
 
@@ -11,3 +13,4 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <App />
   </TonConnectUIProvider>
 );
+

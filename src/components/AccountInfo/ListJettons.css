@@ -19,8 +19,13 @@
 
 .Jettons-List-Wrappers__img {
   display: flex;
-  border-radius: 15px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 .Jettons-List-Wrappers__jettons_name {
   padding-left: 10px;
 }
+
+
+

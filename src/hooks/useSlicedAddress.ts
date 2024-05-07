@@ -12,7 +12,7 @@ export function useSlicedAddress(
     }
 
     const userFriendlyAddress = Address.parseRaw(address).toString({
-      testOnly: chain === CHAIN.TESTNET,
+      testOnly: chain === CHAIN.MAINNET || chain === CHAIN.TESTNET,
     });
 
     return (

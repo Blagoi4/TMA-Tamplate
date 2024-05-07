@@ -3,7 +3,6 @@ import { HttpClient, Api } from "tonapi-sdk-js";
 import { useEffect, useState } from "react";
 import { useTonConnect } from "../../hooks/useTonConnect";
 import { useSlicedAddress } from "../../hooks/useSlicedAddress";
-import { CHAIN } from "@tonconnect/ui-react";
 import "./ListJettons.css";
 
 const AccountInfo = () => {
@@ -11,7 +10,7 @@ const AccountInfo = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [getJettonBalance, setGetJettonBalance] = useState<any>([]);
   const { connected, address } = useTonConnect();
-  const slicedAddress = useSlicedAddress(address, CHAIN.TESTNET);
+  const slicedAddress = useSlicedAddress(address);
   const [loading, setLoading] = useState(false);
   const [availabilityBolt, setAvailabilityBolt] = useState([]);
 
@@ -19,7 +18,6 @@ const AccountInfo = () => {
     const fetchData = async () => {
       const token =
         "AFFOSTQDZOETPHQAAAAJUQPLAAXFLUJ6KZA7GZHFOYCADVDZ5FRTXO35LCI3DZFDACDB4ZA";
-
       const httpClient = new HttpClient({
         baseUrl: "https://tonapi.io",
         baseApiParams: {
@@ -31,15 +29,16 @@ const AccountInfo = () => {
         },
       });
 
-      
+      const addressBoltJetton =
+        "0:f4bdd480fcd79d47dbaf6e037d1229115feb2e7ac0f119e160ebd5d031abdf2e";
+      const testAddress = "UQBxLLK2E-3q_Kyee3mxiOPTh-ohxBXW5OTAz7_6arcDHYMg";
 
       const client = new Api(httpClient);
-
-      if (address !== null) {
+      if (testAddress !== null) {
         try {
-          const accountInfo = await client.accounts.getAccount(address);
+          const accountInfo = await client.accounts.getAccount(testAddress);
           const jettonsInfo = await client.accounts.getAccountJettonsBalances(
-            address
+            testAddress
           );
           const balanceAccount = accountInfo.balance / Math.pow(10, 9);
           setBalance(balanceAccount);
@@ -52,7 +51,8 @@ const AccountInfo = () => {
           setLoading(true);
           const availabilityBoltJetton = getJettonBalance.filter(
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (el: any) => el.jetton.symbol === "BOLT" && el.balance > 0
+            (el: any) =>
+              el.jetton.address === addressBoltJetton && el.balance > 0
           );
           setAvailabilityBolt(availabilityBoltJetton);
         } catch (error) {
@@ -63,7 +63,14 @@ const AccountInfo = () => {
 
     fetchData();
   }, [address, connected]);
- 
+
+  const listColor: Record<number, string> = {
+    1: "rgb(255,50,250)",
+    2: "rgb(245,150,245)",
+    3: "rgb(200,150,200)",
+    4: "rgb(150,0,150)",
+    5: "rgb(50,150,50)",
+  };
 
   return (
     <>
@@ -82,32 +89,51 @@ const AccountInfo = () => {
         <b></b>
         <div>
           <ul>
-            {loading 
+            {loading
               ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 getJettonBalance.map((item: any, index: number) => {
-                  if (item.balance > 0 && item.jetton) {
+                  if (parseFloat(item.balance) / 1000000 >= 0.00001) {
                     return (
                       <div
                         key={`${item.jetton.symbol}-${index}`}
                         className="Jettons-List-Wrappers"
                       >
                         <div className="Jettons-List-Wrappers__info">
-                          <img
-                            className="Jettons-List-Wrappers__img"
-                            src={item.jetton.image}
-                            height="40px"
-                            width="45px"
-                            alt=""
-                          />
+                          {item.jetton?.image ? (
+                            <img
+                              className="Jettons-List-Wrappers__img"
+                              src={item.jetton.image}
+                              onError={() => {
+                                item.jetton.image = !item.jetton.image;
+                              }}
+                            />
+                          ) : (
+                            <div
+                              style={{
+                                backgroundColor: item.jetton?.image
+                                  ? ""
+                                  : listColor[
+                                      (index % Object.keys(listColor).length) +
+                                        1
+                                    ],
+                                height: "40px",
+                                width: "40px",
+                                borderRadius: "50%",
+                              }}
+                            />
+                          )}
+
                           <span>{item.jetton.name}</span>
                         </div>
+
                         <div className="Jettons-List-Wrappers__balance">
-                          {(
-                            parseFloat(item.balance) / 1000000000
-                          ).toLocaleString("en-US", {
-                            minimumFractionDigits: 0,
-                            maximumFractionDigits: 5,
-                          })}
+                          {(parseFloat(item.balance) / 1000000).toLocaleString(
+                            "en-US",
+                            {
+                              minimumFractionDigits: 0,
+                              maximumFractionDigits: 5,
+                            }
+                          )}
                           <span className="Jettons-List-Wrappers__jettons_name">
                             {item.jetton.symbol}
                           </span>
@@ -117,7 +143,7 @@ const AccountInfo = () => {
                   }
                   return null;
                 })
-              : "Loading..." }
+              : "Loading..."}
           </ul>
         </div>
       </div>
