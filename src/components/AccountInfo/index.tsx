@@ -16,7 +16,6 @@ const AccountInfo = () => {
   const [availabilityBolt, setAvailabilityBolt] = useState([]);
   const { tg } = useTelegram();
 
-
   useEffect(() => {
     const fetchData = async () => {
       const token =
@@ -78,7 +77,7 @@ const AccountInfo = () => {
         console.log("Skipped sending data, address is empty");
       }
     }
-  }, [connected]); 
+  }, [connected]);
 
   const listColor: Record<number, string> = {
     1: "rgb(255,50,250)",
@@ -108,7 +107,7 @@ const AccountInfo = () => {
             {loading
               ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 getJettonBalance.map((item: any, index: number) => {
-                  if (parseFloat(item.balance) / 1000000 >= 0.00001) {
+                  if (parseFloat(item.balance) / 1000000000 >= 0.00001) {
                     return (
                       <div
                         key={`${item.jetton.symbol}-${index}`}
@@ -148,13 +147,12 @@ const AccountInfo = () => {
                         </div>
 
                         <div className="Jettons-List-Wrappers__balance">
-                          {(parseFloat(item.balance) / 1000000).toLocaleString(
-                            "en-US",
-                            {
-                              minimumFractionDigits: 0,
-                              maximumFractionDigits: 5,
-                            }
-                          )}
+                          {(
+                            parseFloat(item.balance) / 1000000000
+                          ).toLocaleString("en-US", {
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 3,
+                          })}
                           <span className="Jettons-List-Wrappers__jettons_name">
                             {item.jetton.symbol}
                           </span>
@@ -168,7 +166,6 @@ const AccountInfo = () => {
           </ul>
         </div>
       </div>
-      
     </>
   );
 };

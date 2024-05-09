@@ -1,7 +1,7 @@
 .Jettons-List-Wrappers {
   display: flex;
   justify-content: space-between;
-  padding: 15px 15px;
+  padding: 15px 0px;
 }
 
 .Card img {
@@ -12,7 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px;
+  padding-right: 10px;
+  /* gap: 18px; */
 }
 
 .Jettons-List-Wrappers__balance {
@@ -22,10 +23,12 @@
 }
 
 .Jettons-List-Wrappers__img {
+  
   max-width: 40px;
   height: auto;
   border-radius: 50%;
-  overflow: hidden;
+  margin-right: 20px;
+  /* overflow: hidden; */
 }
 .Jettons-List-Wrappers__img__wrapper {
   object-fit: cover;
