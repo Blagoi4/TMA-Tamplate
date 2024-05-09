@@ -2,12 +2,19 @@ import "./App.css";
 import { CHAIN, TonConnectButton } from "@tonconnect/ui-react";
 import { useTonConnect } from "./hooks/useTonConnect";
 import AccountInfo from "./components/AccountInfo";
-import { useCounterContract } from "./hooks/useCounterContract";
 import "@twa-dev/sdk";
+import { useEffect } from "react";
+import useTelegram from "./hooks/useTelegram";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 function App() {
-  const { connected, network } = useTonConnect();
-  const { sendIncrement } = useCounterContract();
+  const { network } = useTonConnect();
+  const { tg, onClose } = useTelegram();
+
+  useEffect(() => {
+    tg.ready();
+  }, []);
 
   return (
     <div className="App">
@@ -18,14 +25,9 @@ function App() {
         <TonConnectButton />
         <AccountInfo />
 
-        <a
-          className={`Button ${connected ? "Active" : "Disabled"}`}
-          onClick={() => {
-            sendIncrement();
-          }}
-        >
-          Increment
-        </a>
+        <button className="close-btn" onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );

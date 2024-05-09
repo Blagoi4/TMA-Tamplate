@@ -20,6 +20,16 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.close-btn {
+  display: flex;
+  padding: 10px 10px;
+  border-radius: 16px;
+  border: 1px solid black;
+  background-color: black;
+  font-size: 15px;
+  color: white;
+  
+}
 
 @keyframes logo-spin {
   from {

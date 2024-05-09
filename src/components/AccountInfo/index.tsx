@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTonConnect } from "../../hooks/useTonConnect";
 import { useSlicedAddress } from "../../hooks/useSlicedAddress";
 import "./ListJettons.css";
+import useTelegram from "../../hooks/useTelegram";
 
 const AccountInfo = () => {
   const [balance, setBalance] = useState<null | number>(null);
@@ -13,12 +14,14 @@ const AccountInfo = () => {
   const slicedAddress = useSlicedAddress(address);
   const [loading, setLoading] = useState(false);
   const [availabilityBolt, setAvailabilityBolt] = useState([]);
+  const { tg } = useTelegram();
 
+  
   useEffect(() => {
     const fetchData = async () => {
       const token =
         "AFFOSTQDZOETPHQAAAAJUQPLAAXFLUJ6KZA7GZHFOYCADVDZ5FRTXO35LCI3DZFDACDB4ZA";
-  
+
       const httpClient = new HttpClient({
         baseUrl: "https://tonapi.io",
         baseApiParams: {
@@ -42,7 +45,6 @@ const AccountInfo = () => {
           );
           const balanceAccount = accountInfo.balance / Math.pow(10, 9);
           setBalance(balanceAccount);
-
           const sortingBalanceJettons = jettonsInfo.balances.sort(
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (a: any, b: any) => b.balance - a.balance
@@ -54,6 +56,7 @@ const AccountInfo = () => {
             (el: any) =>
               el.jetton.address === addressBoltJetton && el.balance > 0
           );
+
           setAvailabilityBolt(availabilityBoltJetton);
         } catch (error) {
           console.error("Error fetching jetton info:", error);
@@ -63,6 +66,19 @@ const AccountInfo = () => {
 
     fetchData();
   }, [address, connected]);
+
+  useEffect(() => {
+    if (tg && slicedAddress) {
+      const message = {
+        message: String(slicedAddress),
+      };
+      if (slicedAddress.trim() !== "") {
+        tg.sendData(JSON.stringify(message));
+      } else {
+        console.log("Skipped sending data, address is empty");
+      }
+    }
+  }, [connected]); 
 
   const listColor: Record<number, string> = {
     1: "rgb(255,50,250)",
@@ -151,6 +167,9 @@ const AccountInfo = () => {
               : "Loading..."}
           </ul>
         </div>
+      </div>
+      <div>
+        <span>{connected ? slicedAddress : ""} </span>
       </div>
     </>
   );
