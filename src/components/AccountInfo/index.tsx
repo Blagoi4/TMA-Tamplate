@@ -16,7 +16,7 @@ const AccountInfo = () => {
   const [availabilityBolt, setAvailabilityBolt] = useState([]);
   const { tg } = useTelegram();
 
-  
+
   useEffect(() => {
     const fetchData = async () => {
       const token =
@@ -168,9 +168,7 @@ const AccountInfo = () => {
           </ul>
         </div>
       </div>
-      <div>
-        <span>{connected ? slicedAddress : ""} </span>
-      </div>
+      
     </>
   );
 };
