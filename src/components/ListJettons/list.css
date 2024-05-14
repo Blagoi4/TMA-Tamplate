@@ -1,0 +1,103 @@
+.Jettons-List-Wrappers {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 15px 0px; */
+}
+.Jettons-List-Wrappers__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.Jettons-List-Wrappers__img {
+  display: flex;
+  max-width: 40px;
+  height: auto;
+  border-radius: 50%;
+  flex: 1;
+}
+.Jettons-List-Wrappers__placeholder {
+  display: flex;
+}
+.jettons-list__name {
+  display: flex;
+  width: 150px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  flex: 2;
+}
+.jettons-list__balance {
+  display: flex;
+  flex: 2;
+}
+.jettons-list__symbol {
+  display: flex;
+  flex: 1;
+}
+.Jettons-List-Wrappers__img__wrapper {
+  object-fit: cover;
+  overflow: hidden;
+}
+.Jettons-List-Wrappers__jettons_name {
+  padding-left: 10px;
+}
+.Jettons-List-Wrappers__balance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding-right: 10px;
+}
+.Card img {
+  filter: brightness(100%);
+}
+.icons {
+  width: 40px;
+  height: 40px;
+}
+
+.select-wrapper {
+  overflow: hidden;
+  background-color: var(--tg-theme-bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.select-button {
+  padding: 16px 52px 16px 52px;
+  border-radius: 16px;
+  font-size: 16px;
+  width: 100%;
+  background-color: silver;
+  color: var(--tg-theme-button-text-color);
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.select-list__show,
+.select-list__close {
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
+
+  min-width: 350px;
+}
+
+.select-list__show {
+  max-height: 400px;
+  overflow-y: scroll;
+  min-width: 350px;
+}
+
+.select-list__close {
+  max-height: 0;
+}
+
+.select-list__show li,
+.select-list__close li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+  padding-top: 20px;
+  gap: 30px;
+}

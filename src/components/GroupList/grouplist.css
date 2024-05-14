@@ -1,0 +1,87 @@
+.Card img {
+  filter: brightness(100%);
+}
+
+.select-wrapper {
+  overflow: hidden;
+  background-color: var(--tg-theme-bg-color);
+}
+
+.select-button__group {
+  padding: 16px 52px 16px 52px;
+  border-radius: 16px;
+  font-size: 16px;
+  color: var(--tg-theme-button-text-color);
+  font-size: 16px;
+  width: 100%;
+  background-color: var(--tg-theme-button-color);
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.select-list__group__show,
+.select-list__group__close {
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
+  min-width: 350px;
+}
+
+.select-list__group__show {
+  max-height: 400px;
+  overflow-y: scroll;
+  min-width: 350px;
+}
+
+.select-list__group__close {
+  max-height: 0;
+}
+
+.select-list__group__show li,
+.select-list__group__close li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+  padding: 3px 3px;
+}
+
+.group-list-wrapper {
+  border: 1px solid black;
+  padding: 10px 0px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.group-list__info {
+  display: flex;
+}
+.group-list__img {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+.group-list__img img {
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+}
+
+.group-list__title {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+}
+.group-list__limit {
+  display: flex;
+  flex: 0.3;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
+}
+.list-jettons {
+  display: flex;
+  gap: 15px;
+}

@@ -1,25 +1,26 @@
-*{
+* {
   margin: 0;
   padding: 0;
+ 
 }
 :root {
-  --tg-theme-bg-color: #efeff3;
+  /* --tg-theme-bg-color: #efeff3;
   --tg-theme-button-color: #63d0f9;
-  --tg-theme-button-text-color: black;
+  --tg-theme-button-text-color: black; */
 }
 
 .App {
-  /* height: 100vh; */
+  height: 100vh;
   background-color: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
 }
 
 .Container {
   padding: 2rem;
-  max-width: 500px;
+  /* max-width: 500px; */
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   align-items: center;
   margin: 0 auto;
   text-align: center;
@@ -33,7 +34,7 @@
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .Disabled {
@@ -46,32 +47,47 @@
 }
 
 .Hint {
-  color: var(--tg-theme-hint-color);
+  /* color: var(--tg-theme-hint-color); */
 }
 
 .Card {
   width: 100%;
-  padding: 15px 15px;
+  padding: 10px 15px;
   border-radius: 10px;
   background-color: white;
+  /* background-color: var(--tg-theme-hint-color); */
+  filter: brightness(165%);
+  border: 1px solid black;
+  /* color: black; */
 }
 
+@media (prefers-color-scheme: white) {
+  :root {
+    /* --tg-theme-text-color: black; */
+  }
+}
 @media (prefers-color-scheme: dark) {
   :root {
-    --tg-theme-bg-color: #131415;
-    --tg-theme-text-color: #fff;
-    --tg-theme-button-color: #32a6fb;
+    /* /* var(--tg-theme-text-color);
+    var(--tg-theme-hint-color);
+    var(--tg-theme-link-color);
+    var(--tg-theme-button-color);
+    var(--tg-theme-button-text-color); */
+    /* --tg-theme-bg-color: #131415; */
+    
+    --tg-theme-bg-color: var(--tg-theme-bg-color);
+    --tg-theme-text-color:var(--tg-theme-text-color);
+    --tg-theme-button-color: var(--tg-theme-button-color);
     --tg-theme-button-text-color: #fff;
   }
 
   .Card {
-    background-color: var(--tg-theme-bg-color);
-    filter: brightness(165%);
+    /* background-color: var(--tg-theme-bg-color); */
   }
 
-  .CounterValue {
+  /* .CounterValue {
     border-radius: 16px;
     color: white;
     padding: 10px;
-  }
+  } */
 }
