@@ -46,6 +46,7 @@ const List = () => {
   }, [connected, address, tg, slicedAddress]);
 
   const fetchData = async () => {
+  
 
     const client = tonApiClient();
     if (address !== null) {
