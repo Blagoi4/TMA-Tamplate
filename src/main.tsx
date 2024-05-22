@@ -2,6 +2,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import { Buffer } from 'buffer';
+if (typeof window !== 'undefined') {
+    window.Buffer = Buffer;
+}
 
 
 
@@ -14,4 +18,3 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <App />
   </TonConnectUIProvider>
 );
-

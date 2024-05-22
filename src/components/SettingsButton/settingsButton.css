@@ -1,0 +1,9 @@
+
+
+
+@media (prefers-color-scheme: dark) {
+    .settings-button svg {
+      fill: #ffffff; /* Белый цвет иконки для темной темы */
+    }
+  }
+

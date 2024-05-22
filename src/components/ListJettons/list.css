@@ -1,34 +1,39 @@
-.Card img {
+/* .Card img {
   filter: brightness(100%);
-}
+  
+} */
 
 .select-wrapper {
   overflow: hidden;
   background-color: var(--tg-theme-bg-color);
   display: flex;
+  color: var(--tg-theme-text-color);
+  
   flex-direction: column;
   gap: 10px;
 }
 
 .select-button {
+  /* border: 1px solid red; */
   padding: 16px 52px;
   border-radius: 16px;
   font-size: 16px;
-  color: var(--tg-theme-button-text-color);
+  color: var(--tg-theme-text-color);
   min-width: 350px;
-  background-color: silver;
+  background-color: var(--tg-theme-bg-color);
   border: 1px solid #ccc;
   cursor: pointer;
 }
 
 .select-button__group {
   padding: 16px 52px;
+  /* filter: brightness(165%); */
   border-radius: 16px;
   font-size: 16px;
   color: var(--tg-theme-button-text-color);
   min-width: 350px;
   background-color: var(--tg-theme-button-color);
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   cursor: pointer;
 }
 
@@ -66,7 +71,6 @@
 .group-list-wrapper,
 .Jettons-List-Wrappers {
   border: 1px solid black;
-  /* box-shadow: 1px 1px 1px 1px silver; */
   padding: 15px 15px;
   border-radius: 15px;
   display: flex;
@@ -86,7 +90,6 @@
 .group-list__img,
 .Jettons-List-Wrappers__img {
   display: flex;
-  /* flex: 1; */
   align-items: center;
   justify-content: center;
 }

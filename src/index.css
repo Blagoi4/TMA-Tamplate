@@ -1,12 +1,6 @@
 * {
   margin: 0;
   padding: 0;
- 
-}
-:root {
-  /* --tg-theme-bg-color: #efeff3;
-  --tg-theme-button-color: #63d0f9;
-  --tg-theme-button-text-color: black; */
 }
 
 .App {
@@ -17,7 +11,6 @@
 
 .Container {
   padding: 2rem;
-  /* max-width: 500px; */
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -34,7 +27,6 @@
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  /* width: 100%; */
 }
 
 .Disabled {
@@ -42,52 +34,31 @@
   cursor: initial;
 }
 
-.Button.Active:hover {
+/* .Button.Active:hover {
   filter: brightness(105%);
-}
-
-.Hint {
-  /* color: var(--tg-theme-hint-color); */
-}
+} */
 
 .Card {
   width: 100%;
   padding: 10px 15px;
   border-radius: 10px;
   background-color: white;
-  /* background-color: var(--tg-theme-hint-color); */
   filter: brightness(165%);
   border: 1px solid black;
-  /* color: black; */
+}
+.account-controls-wrapper {
+  width: 100%;
+  display: flex;
+align-items: center;
+justify-content: space-between;
+
 }
 
-@media (prefers-color-scheme: white) {
-  :root {
-    /* --tg-theme-text-color: black; */
-  }
-}
 @media (prefers-color-scheme: dark) {
   :root {
-    /* /* var(--tg-theme-text-color);
-    var(--tg-theme-hint-color);
-    var(--tg-theme-link-color);
-    var(--tg-theme-button-color);
-    var(--tg-theme-button-text-color); */
-    /* --tg-theme-bg-color: #131415; */
-    
     --tg-theme-bg-color: var(--tg-theme-bg-color);
-    --tg-theme-text-color:var(--tg-theme-text-color);
+    --tg-theme-text-color: var(--tg-theme-text-color);
     --tg-theme-button-color: var(--tg-theme-button-color);
     --tg-theme-button-text-color: #fff;
   }
-
-  .Card {
-    /* background-color: var(--tg-theme-bg-color); */
-  }
-
-  /* .CounterValue {
-    border-radius: 16px;
-    color: white;
-    padding: 10px;
-  } */
 }

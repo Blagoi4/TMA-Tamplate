@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "../start-ngrok-and-bot.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

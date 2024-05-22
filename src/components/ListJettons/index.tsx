@@ -7,6 +7,7 @@ import "../AccountInfo/accountInfo.css";
 import useTelegram from "../../hooks/useTelegram";
 import tonApiClient from "../../services/tonApiClient";
 
+
 interface Jetton {
   symbol: string;
   name: string;

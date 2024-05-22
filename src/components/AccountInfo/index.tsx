@@ -61,17 +61,14 @@ const AccountInfo = () => {
   };
 
   return (
-    <>
-      <div className="Balance-Bolt-Wrapper">
-        <span className="balance-bolt__title">Balance</span>
-        <div className="Balance-Bolt__info">
-          <div className="Balance-Bolt__info__sum">{balanceBolt}</div>
-          <img src={imageBolt} alt="" />
-        </div>
+    <div className="Balance-Bolt-Wrapper">
+      <span className="balance-bolt__title">Balance</span>
+      <div className="Balance-Bolt__info">
+        <div className="Balance-Bolt__info__sum">{balanceBolt}</div>
+        <img src={imageBolt} alt="" />
       </div>
-    </>
+    </div>
   );
 };
-
 
 export default AccountInfo;
