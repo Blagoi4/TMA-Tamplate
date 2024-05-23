@@ -1,10 +1,9 @@
-import "../../App.css";
 import { useEffect, useState } from "react";
 import { useTonConnect } from "../../hooks/useTonConnect";
 import { useSlicedAddress } from "../../hooks/useSlicedAddress";
-import "./accountInfo.css";
 import useTelegram from "../../hooks/useTelegram";
 import tonApiClient from "../../services/tonApiClient";
+import { useTranslation } from "react-i18next";
 
 const AccountInfo = () => {
   const { connected, address } = useTonConnect();
@@ -12,6 +11,7 @@ const AccountInfo = () => {
   const [balanceBolt, setBalanceBolt] = useState<number | string>("");
   const [imageBolt, setImageBolt] = useState("");
   const { tg } = useTelegram();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (tg && slicedAddress) {
@@ -61,11 +61,11 @@ const AccountInfo = () => {
   };
 
   return (
-    <div className="Balance-Bolt-Wrapper">
-      <span className="balance-bolt__title">Balance</span>
-      <div className="Balance-Bolt__info">
-        <div className="Balance-Bolt__info__sum">{balanceBolt}</div>
-        <img src={imageBolt} alt="" />
+    <div className="flex flex-col items-center gap-2 ">
+      <span className="text-lg">{t('Balance')}</span>
+      <div className="flex items-center gap-2.5">
+        <div className="text-4xl">{balanceBolt}</div>
+        <img src={imageBolt} alt="" className="w-7.5 h-7.5 rounded-full" />
       </div>
     </div>
   );

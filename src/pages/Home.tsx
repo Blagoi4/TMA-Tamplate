@@ -1,4 +1,3 @@
-import "../index.css";
 import { TonConnectButton } from "@tonconnect/ui-react";
 import AccountInfo from "../components/AccountInfo";
 import "@twa-dev/sdk";
@@ -8,37 +7,44 @@ import List from "../components/ListJettons";
 import GroupList from "../components/GroupList";
 import { useTonConnect } from "../hooks/useTonConnect";
 import SettingsButton from "../components/SettingsButton";
-import QRScanner from "../components/QRScanner";
-// import { Link } from "react-router-dom";
+import "../index.css"; 
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const { tg, onClose } = useTelegram();
   const { connected } = useTonConnect();
-  // const { backButton } = useTelegram();
+  const { t } = useTranslation();
+
+
 
   useEffect(() => {
     tg.ready();
   }, [tg]);
 
   return (
-    <div className="App">
-      <div className="Container">
+    <div className="h-screen relative  text-tg-text bg-tg-bg-secondary">
+      <div className="p-5 flex flex-col gap-5 items-center text-center mx-auto relative z-10">
         {!connected ? (
-          <TonConnectButton />
+          <TonConnectButton  />
         ) : (
           <>
-            <div className="account-controls-wrapper">
+            <div className="w-full flex items-center justify-between">
               <SettingsButton />
-              <QRScanner />
+              {}
             </div>
-            <TonConnectButton />
-            <AccountInfo />
-            <GroupList />
-            <List />
+            <div className="flex flex-col items-center gap-5">
+              <TonConnectButton />
+              <AccountInfo />
+              <GroupList />
+              <List />
+            </div>
           </>
         )}
-        <button className="close-btn" onClick={onClose}>
-          Close
+        <button
+          className="flex p-2.5 rounded-lg border border-black text-lg"
+          onClick={onClose}
+        >
+          {t('close')}
         </button>
       </div>
     </div>

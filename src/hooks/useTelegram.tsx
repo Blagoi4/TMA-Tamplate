@@ -10,11 +10,11 @@ const useTelegram = () => {
   };
 
   const backButton = () => {
-    // Установить обработчик нажатия на кнопку назад
     tg.BackButton.onClick(() => {
-      navigate(-1); // Переход на предыдущую страницу
+      navigate(-1); 
+      tg.BackButton.hide()
     });
-    // Показать кнопку назад
+  
     tg.BackButton.show();
   };
 

@@ -1,11 +1,11 @@
-.qrscan-button {
+/* .qrscan-button {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30px;
     height: 30px;
     background-color: transparent;
-    color: black; /* Цвет по умолчанию для светлой темы */
+    color: black; 
   }
   
   .qrscan-icon {
@@ -15,6 +15,6 @@
   
   @media (prefers-color-scheme: dark) {
     .qrscan-button {
-      color: white; /* Цвет для темной темы */
+      color: white;
     }
-  }
+  } */

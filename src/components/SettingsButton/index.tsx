@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import "./settingsButton.css";
-// import useTelegram from "../../hooks/useTelegram";
-
-// import iconSettings from '../../img/settings.svg'
 
 const SettingsButton = () => {
-  //   const { backButton } = useTelegram();
   return (
-    <div className="settings-button-wrapper">
-      <Link to="/Settings" className="settings-button">
-        <svg fill="black" height="25px" width="25px" viewBox="0 0 54 54">
+    <div className="flex items-center justify-center">
+      <Link to="/Settings" className="block p-1.5 rounded-full">
+        <svg
+          className="fill-current  dark:text-white"
+          height="25px"
+          width="25px"
+          viewBox="0 0 54 54"
+        >
           {
             <g>
               <path

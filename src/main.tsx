@@ -3,12 +3,11 @@ import App from "./App";
 import "./index.css";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import { Buffer } from 'buffer';
+import './i18n'; // Подключение i18n
+
 if (typeof window !== 'undefined') {
     window.Buffer = Buffer;
 }
-
-
-
 
 const manifestUrl =
   "https://raw.githubusercontent.com/Blagoi4/TWA-Template/main/tonconnect-manifest.json";

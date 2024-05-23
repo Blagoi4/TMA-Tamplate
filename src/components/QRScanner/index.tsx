@@ -1,10 +1,8 @@
-import "./qrScan.css";
-
 const QRScanner = () => {
   return (
-    <div className="qrscan-button">
+    <div className="flex items-center justify-center w-7.5 h-7.5 bg-transparent text-black dark:text-white">
       <svg
-        className="qrscan-icon"
+        className="w-30px h-30px"
         viewBox="0 0 256 256"
         preserveAspectRatio="xMidYMid meet"
       >
