@@ -4,6 +4,7 @@ import { useSlicedAddress } from "../../hooks/useSlicedAddress";
 import useTelegram from "../../hooks/useTelegram";
 import tonApiClient from "../../services/tonApiClient";
 import { useTranslation } from "react-i18next";
+import BoltLogo from "../BoltLogo";
 
 const AccountInfo = () => {
   const { connected, address } = useTonConnect();
@@ -65,7 +66,8 @@ const AccountInfo = () => {
       <span className="text-lg">{t('Balance')}</span>
       <div className="flex items-center gap-2.5">
         <div className="text-4xl">{balanceBolt}</div>
-        <img src={imageBolt} alt="" className="w-7.5 h-7.5 rounded-full" />
+        <div><BoltLogo/></div>
+        {/* <img src={imageBolt} alt="" className="w-7.5 h-7.5 rounded-full" /> */}
       </div>
     </div>
   );

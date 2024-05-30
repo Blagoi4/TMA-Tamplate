@@ -10,7 +10,7 @@ export default defineConfig({
     host: "0.0.0.0",
     hmr: {
       protocol: "wss",
-      host: '88d3-188-163-42-75.ngrok-free.app',
+      host: 'abbd-188-163-42-75.ngrok-free.app',
 clientPort: 443,
       port: 8080,
     },

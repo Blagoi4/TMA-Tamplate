@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./settingsButton.css";
+
 
 const SettingsButton = () => {
   return (

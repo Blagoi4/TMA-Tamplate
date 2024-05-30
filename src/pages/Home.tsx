@@ -15,22 +15,19 @@ const Home = () => {
   const { connected } = useTonConnect();
   const { t } = useTranslation();
 
-
-
   useEffect(() => {
     tg.ready();
   }, [tg]);
 
   return (
-    <div className="h-screen relative  text-tg-text bg-tg-bg-secondary">
+    <div className="bg-tg-bg-theme h-screen relative text-tg-text">
       <div className="p-5 flex flex-col gap-5 items-center text-center mx-auto relative z-10">
         {!connected ? (
-          <TonConnectButton  />
+          <TonConnectButton className="mainBTN" />
         ) : (
           <>
             <div className="w-full flex items-center justify-between">
               <SettingsButton />
-              {}
             </div>
             <div className="flex flex-col items-center gap-5">
               <TonConnectButton />

@@ -9,7 +9,7 @@ export default {
     extend: {
       colors: {
         "tg-bg": "var(--tg-theme-bg-color)",
-        "tg-bg-secondary": "var(--tg-theme-section-bg-color)",
+        "tg-bg-theme": "var(--tg-theme-header-bg-color)",
         "tg-bg-section-witch-secondary": "var(--tg-theme-section-bg-color)",
         "tg-text": "var(--tg-theme-text-color)",
         "tg-button": "var(--tg-theme-button-color)",

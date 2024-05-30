@@ -5,17 +5,21 @@
 @layer base {
   .dimmed-bg {
     position: relative;
-    background-color: var(--tg-theme-secondary-bg-color);
+    /* background-color: var(--tg-theme-secondary-bg-color); */
+  }
+  .mainBTN {
+   
   }
 
   html,body,head {
     /* height: 100vh; */
     margin: 0;
     padding: 0;
-    background-color: var(--tg-theme-section-bg-color);
+    /* background-color: red; */
   }
   :root {
     /* height: 100vh; */
+    background-color:var(--tg-theme-header-bg-color);
   }
 
   /* .dimmed-bg::before {

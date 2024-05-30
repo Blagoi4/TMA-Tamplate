@@ -5,6 +5,7 @@ const tg = window.Telegram.WebApp;
 const useTelegram = () => {
   const navigate = useNavigate();
 
+ 
   const onClose = () => {
     tg.close();
   };
@@ -12,7 +13,7 @@ const useTelegram = () => {
   const backButton = () => {
     tg.BackButton.onClick(() => {
       navigate(-1); 
-      tg.BackButton.hide()
+      tg.BackButton.hide();
     });
   
     tg.BackButton.show();
@@ -22,7 +23,7 @@ const useTelegram = () => {
     if (tg.MainButton.isVisible) {
       tg.MainButton.hide();
     } else {
-      tg.MainButton.show;
+      tg.MainButton.show();
     }
   };
 
