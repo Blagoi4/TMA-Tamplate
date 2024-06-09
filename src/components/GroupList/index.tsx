@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dataGroupCatalog from "../GroupList/dataGroupCatalog.js";
 import { useTranslation } from "react-i18next";
 
@@ -7,15 +7,23 @@ interface GroupCatalogItem {
   name: string;
   title: string;
   limit: string;
+  favorite?: boolean;
 }
 
 const GroupList = () => {
   const [open, setOpen] = useState(false);
-  const {t} = useTranslation()
+  const [groups, setGroups] = useState<GroupCatalogItem[]>([]);
+  const { t } = useTranslation();
 
   const handleButton = () => {
     setOpen((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    const favoriteGroup = dataGroupCatalog.filter((el) => el.favorite);
+    const unFavoriteGroup = dataGroupCatalog.filter((el) => !el.favorite);
+    setGroups([...favoriteGroup, ...unFavoriteGroup]);
+  }, []);
 
   return (
     <div className="overflow-hidden text-tg-text flex flex-col gap-2.5">
@@ -27,20 +35,19 @@ const GroupList = () => {
           color: "var(--tg-theme-button-text-color)",
         }}
       >
-      
-        {t('Open List Chat')}
+        {t("Open List Chat")}
       </button>
       <ul
         className={`${
-          open ? "max-h-96 overflow-y-visible" : "max-h-0"
-        } transition-all duration-700 ease-in-out min-w-[350px] flex flex-col gap-4`}
+          open ? "max-h-96 overflow-y-auto" : "max-h-0"
+        } transition-all duration-700  ease-in-out min-w-[350px] flex flex-col gap-4`}
       >
-        {dataGroupCatalog.map((item: GroupCatalogItem, index: number) => (
+        {groups.map((item: GroupCatalogItem, index: number) => (
           <li className="flex flex-col gap-2.5 p-1.25" key={index}>
-            <div className="border border-black p-3.75 rounded-2xl flex items-center justify-between max-w-[350px] p-3">
+            <div className={item?.favorite ? ("border-2 border-yellow-500 shadow-gold border- p-3.75 rounded-2xl flex items-center justify-between max-w-[350px] p-3") : ("border-2 border-black p-3.75 rounded-2xl flex items-center justify-between max-w-[350px] p-3")}>
               <div className="flex items-center text-start gap-2.5">
                 <div className="flex items-center justify-center">
-                  <img 
+                  <img
                     src={item.image}
                     alt={item.name}
                     className="w-10 h-10 rounded-2xl"

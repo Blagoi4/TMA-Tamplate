@@ -3,11 +3,11 @@ import useTelegram from "../hooks/useTelegram";
 import { useTonConnect } from "../hooks/useTonConnect";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
-
+import { Link } from "react-router-dom";
 const Settings = () => {
   const { backButton } = useTelegram();
   const { t, i18n } = useTranslation();
-  const { disconnect } = useTonConnect(); // Использование функции disconnect из хука
+  const { disconnect } = useTonConnect();
 
   useEffect(() => {
     backButton();
@@ -41,6 +41,7 @@ const Settings = () => {
           RU
         </Button>
         <div className="flex justify-center pt-5">
+          <Link to='/TWA-Template'>
           <Button
             variant="contained"
             color="secondary"
@@ -49,6 +50,7 @@ const Settings = () => {
           >
             {t("disconnect")}
           </Button>
+          </Link>
         </div>
       </div>
     </div>

@@ -47,6 +47,7 @@
     "vite-plugin-node-polyfills": "^0.21.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.4",
     "@types/node-telegram-bot-api": "^0.64.6",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",

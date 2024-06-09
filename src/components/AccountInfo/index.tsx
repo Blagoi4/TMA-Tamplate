@@ -10,7 +10,6 @@ const AccountInfo = () => {
   const { connected, address } = useTonConnect();
   const slicedAddress = useSlicedAddress(address);
   const [balanceBolt, setBalanceBolt] = useState<number | string>("");
-  const [imageBolt, setImageBolt] = useState("");
   const { tg } = useTelegram();
   const { t } = useTranslation();
 
@@ -50,7 +49,6 @@ const AccountInfo = () => {
                 maximumFractionDigits: 2,
               })
             );
-            setImageBolt(item.jetton.image);
           } else {
             ("");
           }
@@ -63,11 +61,12 @@ const AccountInfo = () => {
 
   return (
     <div className="flex flex-col items-center gap-2 ">
-      <span className="text-lg">{t('Balance')}</span>
+      <span className="text-lg">{t("Balance")}</span>
       <div className="flex items-center gap-2.5">
         <div className="text-4xl">{balanceBolt}</div>
-        <div><BoltLogo/></div>
-        {/* <img src={imageBolt} alt="" className="w-7.5 h-7.5 rounded-full" /> */}
+        <div>
+          <BoltLogo />
+        </div>
       </div>
     </div>
   );

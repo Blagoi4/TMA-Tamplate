@@ -16,15 +16,66 @@ interface JettonBalance {
   balance: string;
   jetton: Jetton;
 }
+interface ImageWithFallback {
+  src: string;
+  width: number;
+  height: number;
+  style?: React.CSSProperties;
+}
 
-const List = () => {
+const ImageWithFallback: React.FC<ImageWithFallback> = ({
+  src,
+  width,
+  height,
+  style,
+}) => {
+  const [imageError, setImageError] = useState(false);
+
+  const handleError = () => {
+    setImageError(true);
+  };
+
+  const generateRandomColor = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+
+  if (imageError) {
+    const backgroundColor = generateRandomColor();
+    return (
+      <div
+        style={{
+          borderRadius: 16,
+          width: width,
+          height: height,
+          backgroundColor: backgroundColor,
+        }}
+      ></div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      width={width}
+      height={height}
+      style={style}
+      onError={handleError}
+      alt="Product"
+    />
+  );
+};
+
+const JettonList = () => {
   const [open, setOpen] = useState(false);
   const [getJettonBalance, setGetJettonBalance] = useState<JettonBalance[]>([]);
-  const { connected, address } = useTonConnect();
+  const { address } = useTonConnect();
   const slicedAddress = useSlicedAddress(address);
   const [loading, setLoading] = useState(false);
   const { tg } = useTelegram();
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   const handleButton = () => {
     setOpen((prevState) => !prevState);
@@ -41,35 +92,27 @@ const List = () => {
         console.log("Skipped sending data, address is empty");
       }
     }
-    fetchData();
-  }, [connected, address, tg, slicedAddress]);
-
-  const fetchData = async () => {
-    const client = tonApiClient();
-    if (address !== null) {
-      try {
-        await client.accounts.getAccount(address);
-        const jettonsInfo = await client.accounts.getAccountJettonsBalances(
-          address
-        );
-        const sortingBalanceJettons = jettonsInfo.balances.sort(
-          (a, b) => parseFloat(b.balance) - parseFloat(a.balance)
-        );
-        setGetJettonBalance(sortingBalanceJettons);
-        setLoading(true);
-      } catch (error) {
-        console.error("Error fetching jetton info:", error);
+    const fetchData = async () => {
+      const client = tonApiClient();
+      if (address !== null) {
+        try {
+          // await client.accounts.getAccount(address);
+          const jettonsInfo = await client.accounts.getAccountJettonsBalances(
+            address
+          );
+          const sortingBalanceJettons = jettonsInfo.balances.sort(
+            (a, b) => parseFloat(b.balance) - parseFloat(a.balance)
+          );
+          setGetJettonBalance(sortingBalanceJettons);
+          setLoading(true);
+        } catch (error) {
+          console.error("Error fetching jetton info:", error);
+        }
       }
-    }
-  };
-
-  const listColor: Record<number, string> = {
-    1: "rgb(255,50,250)",
-    2: "rgb(245,150,245)",
-    3: "rgb(200,150,200)",
-    4: "rgb(150,0,150)",
-    5: "rgb(50,150,50)",
-  };
+    };
+    fetchData();
+    setLoading(false);
+  }, []);
 
   return (
     <div className="overflow-hidden text-tg-text flex flex-col gap-2.5">
@@ -77,8 +120,7 @@ const List = () => {
         onClick={handleButton}
         className="py-4 px-16 rounded-2xl text-lg min-w-[350px] border border-gray-300 cursor-pointer whitespace-nowrap"
       >
-        {t('Open List Jettons')}
-        
+        {t("Open List Jettons")}
       </button>
       <ul
         className={`${
@@ -95,31 +137,14 @@ const List = () => {
                     key={`${item.jetton.symbol}-${index}`}
                     className="flex flex-col gap-2.5 p-1.25"
                   >
-                    <div className="border border-black p-3.75 rounded-2xl flex items-center justify-between max-w-[350px] p-3">
+                    <div className="border-2 border-black p-3.75 rounded-2xl flex items-center justify-between max-w-[350px] p-3">
                       <div className="flex items-center text-start gap-2.5">
-                        {item.jetton?.image ? (
-                          <div className="flex items-center justify-center">
-                            <div className="w-10 h-10 overflow-hidden rounded-full">
-                              <img
-                                className="w-full h-full object-cover"
-                                src={item.jetton.image}
-                                onError={() => {
-                                  item.jetton.image = "";
-                                }}
-                              />
-                            </div>
-                          </div>
-                        ) : (
-                          <div
-                            className="w-10 h-10 rounded-full"
-                            style={{
-                              backgroundColor:
-                                listColor[
-                                  (index % Object.keys(listColor).length) + 1
-                                ],
-                            }}
-                          />
-                        )}
+                        <ImageWithFallback
+                          style={{ borderRadius: 16 }}
+                          src={item.jetton.image}
+                          width={35}
+                          height={35}
+                        />
                         <div className="flex-2 flex flex-col p-1.25">
                           {item.jetton.name}
                         </div>
@@ -144,4 +169,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default JettonList;
