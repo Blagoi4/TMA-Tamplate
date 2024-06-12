@@ -21,7 +21,6 @@ const NFTList: React.FC = () => {
         try {
           const nftItems = await client.accounts.getAccountNftItems(address);
           setGetNFTItem(nftItems.nft_items as INftItem[]);
-          console.log(nftItems.nft_items);
         } catch (error) {
           console.error("Error fetching jetton info:", error);
         }
@@ -42,6 +41,7 @@ const NFTList: React.FC = () => {
         className={`${
           open ? "max-h-96 overflow-y-scroll" : "max-h-0"
         } transition-all duration-700 ease-in-out min-w-[350px] flex flex-col gap-4`}
+        style={{ scrollbarWidth: "none" }}
       >
         {getNFTItem.map((item) => (
           <li className="flex flex-col gap-2.5 p-1.25" key={item.address}>

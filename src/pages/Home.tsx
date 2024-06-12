@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import useTelegram from "../hooks/useTelegram";
 import GroupList from "../components/GroupList";
 import { useTonConnect } from "../hooks/useTonConnect";
-import SettingsButton from "../components/SettingsButton";
+import SettingsButton from "../components/UI/SettingsButton";
 import "../index.css";
 // import { useTranslation } from "react-i18next";
 import JettonList from "../components/JettonsList";

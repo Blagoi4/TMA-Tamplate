@@ -126,6 +126,7 @@ const JettonList = () => {
         className={`${
           open ? "max-h-96 overflow-y-scroll" : "max-h-0"
         } transition-all duration-700 ease-in-out min-w-[350px] flex flex-col gap-4`}
+        style={{scrollbarWidth: 'none'}}
       >
         {loading
           ? getJettonBalance.map((item, index) => {

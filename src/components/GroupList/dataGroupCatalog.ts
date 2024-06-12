@@ -1,49 +1,63 @@
 const dataGroupCatalog = [
-    {
-      name: "Crypto Salmon",
-      title: "Secure Fish Trading",
-      image: "https://i.ibb.co/wQv1vGr/IMG-6551-2.jpg",
-      limit: "8-36",
-    },
-    {
-      name: "Bitcoin Tuna",
-      title: "Digital Ocean Exchange",
-      image: "https://i.ibb.co/rpbPRvD/IMG-6551.jpg",
-      limit: "8-36"
-    },
-    {
-      name: "Blockchain Trout",
-      title: "Decentralized Fish Market",
-      image: "https://i.ibb.co/Stgyx9g/IMG-7859-1.jpg",
-      limit: "8-36"
-    },
-    {
-      name: "Ethereum Cod",
-      title: "Smart Contract Fish",
-      image: "https://i.ibb.co/nPTJRfX/IMG-7859-2.jpg",
-      limit: "8-36"
-    },
-    {
-      name: "Ripple Mackerel",
-      title: "Fast Fish Transfers",
-      image: "https://i.ibb.co/0qb56ZN/IMG-7859.jpg",
-      limit: "8-36",
-      favorite: true,
-    },
-    {
-      name: "Litecoin Herring",
-      title: "Lightweight Fish Transactions",
-      image: "https://i.ibb.co/N6bpMMz/IMG-6551-3.jpg",
-      limit: "8-36",
-      favorite: true,
-    },
-    {
-      name: "Cardano Sardine",
-      title: "Secure Fish Protocol",
-      image: "https://i.ibb.co/jyfc96S/IMG-6551-4.jpg",
-      limit: "8-36",
-      favorite: true,
-    }
-  ];
-   
-  export default dataGroupCatalog
+  {
+    name: "Crypto Salmon",
+    title: "Secure Fish Trading",
+    image: "https://i.ibb.co/wQv1vGr/IMG-6551-2.jpg",
+    limit: "6-36",
+    join: false,
+    id: 1233441,
+  },
+  {
+    name: "Bitcoin Tuna",
+    title: "Digital Ocean Exchange",
+    image: "https://i.ibb.co/rpbPRvD/IMG-6551.jpg",
+    limit: "5-36",
+    join: false,
+    id: 12334412,
+  },
+  {
+    name: "Blockchain Trout",
+    title: "Decentralized Fish Market",
+    image: "https://i.ibb.co/Stgyx9g/IMG-7859-1.jpg",
+    limit: "3-36",
+    join: true,
+    id: 1233443,
+  },
+  {
+    name: "Ethereum Cod",
+    title: "Smart Contract Fish",
+    image: "https://i.ibb.co/nPTJRfX/IMG-7859-2.jpg",
+    limit: "8-36",
+    join: false,
+    id: 1233444,
+  },
+  {
+    name: "Ripple Mackerel",
+    title: "Fast Fish Transfers",
+    image: "https://i.ibb.co/0qb56ZN/IMG-7859.jpg",
+    limit: "2-36",
+    favorite: true,
+    join: false,
+    id: 1233445,
+  },
+  {
+    name: "Litecoin Herring",
+    title: "Lightweight Fish Transactions",
+    image: "https://i.ibb.co/N6bpMMz/IMG-6551-3.jpg",
+    limit: "1-36",
+    favorite: true,
+    join: true,
+    id: 1233446,
+  },
+  {
+    name: "Cardano Sardine",
+    title: "Secure Fish Protocol",
+    image: "https://i.ibb.co/jyfc96S/IMG-6551-4.jpg",
+    limit: "9-36",
+    favorite: true,
+    join: false,
+    id: 1233447,
+  },
+];
+
+export default dataGroupCatalog;

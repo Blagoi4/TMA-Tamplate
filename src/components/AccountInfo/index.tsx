@@ -4,7 +4,7 @@ import { useSlicedAddress } from "../../hooks/useSlicedAddress";
 import useTelegram from "../../hooks/useTelegram";
 import tonApiClient from "../../services/tonApiClient";
 import { useTranslation } from "react-i18next";
-import BoltLogo from "../BoltLogo";
+import BoltLogo from "../UI/BoltLogo";
 
 const AccountInfo = () => {
   const { connected, address } = useTonConnect();
