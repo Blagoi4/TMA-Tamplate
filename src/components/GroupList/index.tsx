@@ -62,44 +62,6 @@ const GroupList = () => {
     setGroups([...sortedFavorite, ...sortedNotFavorite]);
   };
 
-  // const handleJoinInGroup = () => {
-  //   setIsJoinInGroup((prevState) => !prevState);
-
-  //   const sortedGetJoin = initialGroup
-  //     .filter((el) => el.favorite)
-  //     .sort((a, b) =>
-  //       isJoinInGroup
-  //         ? a.join
-  //           ? 0
-  //           : b.join
-  //           ? -1
-  //           : 1
-  //         : b.join
-  //         ? 0
-  //         : a.join
-  //         ? -1
-  //         : 1
-  //     );
-
-  //   const sortedNotJoin = initialGroup
-  //     .filter((el) => !el.favorite)
-  //     .sort((a, b) =>
-  //       isJoinInGroup
-  //         ? a.join
-  //           ? 0
-  //           : b.join
-  //           ? -1
-  //           : 1
-  //         : b.join
-  //         ? 0
-  //         : a.join
-  //         ? -1
-  //         : 1
-  //     );
-
-  //   const sortedGroups = [...sortedGetJoin, ...sortedNotJoin];
-  //   setGroups(sortedGroups);
-  // };
   const handleJoinInGroup = () => {
     setIsJoinInGroup((prevState) => !prevState);
 
@@ -149,7 +111,7 @@ const GroupList = () => {
   };
 
   console.log(isJoinInGroup);
-  console.log(groups)
+  console.log(groups);
   return (
     <div className="overflow-hidden text-tg-text flex flex-col gap-2.5">
       <button
