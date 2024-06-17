@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useTonConnect } from "../../hooks/useTonConnect";
+import { useTonConnect } from "../../hooks/telegram/useTonConnect";
 import tonApiClient from "../../services/tonApiClient";
 import { INftItem } from "../../types";
 import { useTranslation } from "react-i18next";

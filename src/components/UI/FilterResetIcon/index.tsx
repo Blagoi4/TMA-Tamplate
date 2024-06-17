@@ -1,6 +1,5 @@
-import React from 'react';
 
-const FillterResetIcon = () => {
+const FilterResetIcon = () => {
   return (
     <svg
       height="26px"
@@ -35,4 +34,4 @@ const FillterResetIcon = () => {
   );
 };
 
-export default FillterResetIcon;
+export default FilterResetIcon;

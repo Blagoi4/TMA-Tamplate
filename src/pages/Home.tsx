@@ -2,14 +2,15 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import AccountInfo from "../components/AccountInfo";
 import "@twa-dev/sdk";
 import { useEffect } from "react";
-import useTelegram from "../hooks/useTelegram";
-import GroupList from "../components/GroupList";
-import { useTonConnect } from "../hooks/useTonConnect";
+import useTelegram from "../hooks/telegram/useTelegram";
+// import GroupList from "../components/Group";
+import { useTonConnect } from "../hooks/telegram/useTonConnect";
 import SettingsButton from "../components/UI/SettingsButton";
 import "../index.css";
 // import { useTranslation } from "react-i18next";
 import JettonList from "../components/JettonsList";
 import NFTList from "../components/NFTList";
+import Group from "../components/Group";
 
 const Home = () => {
   const { tg } = useTelegram();
@@ -39,7 +40,7 @@ const Home = () => {
               </div>
               {/* <TonConnectButton /> */}
               <AccountInfo />
-              <GroupList />
+              <Group />
               <JettonList />
               <NFTList />
             </div>

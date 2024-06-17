@@ -27,7 +27,7 @@ export function useTonConnect(): {
 
   // Функция для отключения
   const disconnect = () => {
-    tonConnectUI.disconnect();  // Предположим, что такой метод существует
+    tonConnectUI.disconnect();  
   };
 
   return {

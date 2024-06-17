@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useTonConnect } from "../../hooks/useTonConnect";
-import { useSlicedAddress } from "../../hooks/useSlicedAddress";
-import useTelegram from "../../hooks/useTelegram";
+import { useTonConnect } from "../../hooks/telegram/useTonConnect";
+import { useSlicedAddress } from "../../hooks/telegram/useSlicedAddress";
+import useTelegram from "../../hooks/telegram/useTelegram";
 import tonApiClient from "../../services/tonApiClient";
 import { useTranslation } from "react-i18next";
 

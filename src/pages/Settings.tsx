@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import useTelegram from "../hooks/useTelegram";
-import { useTonConnect } from "../hooks/useTonConnect";
+import useTelegram from "../hooks/telegram/useTelegram";
+import { useTonConnect } from "../hooks/telegram/useTonConnect";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";

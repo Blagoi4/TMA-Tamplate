@@ -1,6 +1,6 @@
 // import React from "react";
 
-const FillterIcon = () => {
+const FilterIcon = () => {
   return (
     <svg
       fill="#000000"
@@ -17,4 +17,4 @@ const FillterIcon = () => {
   );
 };
 
-export default FillterIcon;
+export default FilterIcon;
