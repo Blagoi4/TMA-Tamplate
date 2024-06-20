@@ -3,9 +3,9 @@ import { useSlicedAddress } from "../../../hooks/telegram/useSlicedAddress";
 import useTelegram from "../../../hooks/telegram/useTelegram";
 import tonApiClient from "../../../services/tonApiClient";
 import { JettonData } from "../../../types/jetton";
-// import { JettonBalance } from "tonapi-sdk-js";
 
-const useJettonData = (address: string | null) => {
+
+const JettonData = (address: string | null) => {
   const [loading, setLoading] = useState(false);
   const [getJetton, setGetJetton] = useState<JettonData[]>([]);
   const { tg } = useTelegram();
@@ -37,7 +37,7 @@ const useJettonData = (address: string | null) => {
             const jettonData = jettonInfo.balances.sort(
               (a, b) => parseFloat(b.balance) - parseFloat(a.balance)
             );
-            setGetJetton(jettonData);
+            setGetJetton(jettonData as unknown as JettonData[]);
             setLoading(true);
           }
         } catch (error) {
@@ -52,4 +52,4 @@ const useJettonData = (address: string | null) => {
   return { loading, getJetton };
 };
 
-export default useJettonData;
+export default JettonData;
