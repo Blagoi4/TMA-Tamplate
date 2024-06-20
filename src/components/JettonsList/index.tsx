@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Button from "../Button";
 import JettonList from "./JettonList";
 import { useTonConnect } from "../../hooks/telegram/useTonConnect";
-import useJettonData from "./JettonData";
+import useJettonData from './JettonData/index';
 
 const Jetton = () => {
   const [open, setOpen] = useState(false);

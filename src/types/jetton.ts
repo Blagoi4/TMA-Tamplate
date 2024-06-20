@@ -7,7 +7,7 @@ interface Jetton {
   image: string;
 }
 
-interface JettonData {
+interface JettonDataType {
   balance: string;
   wallet_address: WalletAddress;
   jetton: Jetton;
@@ -18,17 +18,23 @@ interface WalletAddress {
   is_scam: boolean;
   is_wallet: boolean;
 }
-  interface ImageWithFallbackProps {
-    src: string;
-    width: number;
-    height: number;
-    style?: React.CSSProperties;
-  }
+interface ImageWithFallbackProps {
+  src: string;
+  width: number;
+  height: number;
+  style?: React.CSSProperties;
+}
 
-  interface JettonListProps {
-    loading: boolean;
-    getJetton: JettonData[];
-    open: boolean;
-  }
+interface JettonListProps {
+  loading: boolean;
+  getJetton: JettonDataType[];
+  open: boolean;
+}
 
-  export type { Jetton, JettonData, ImageWithFallbackProps, JettonListProps, WalletAddress };
+export type {
+  Jetton,
+  JettonDataType,
+  ImageWithFallbackProps,
+  JettonListProps,
+  WalletAddress,
+};

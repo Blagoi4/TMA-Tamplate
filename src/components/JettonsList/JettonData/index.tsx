@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import { useSlicedAddress } from "../../../hooks/telegram/useSlicedAddress";
 import useTelegram from "../../../hooks/telegram/useTelegram";
 import tonApiClient from "../../../services/tonApiClient";
-import { JettonData } from "../../../types/jetton";
+import { JettonDataType } from "../../../types/jetton";
 
-
-const JettonData = (address: string | null) => {
+const useJettonData = (address: string | null) => {
   const [loading, setLoading] = useState(false);
-  const [getJetton, setGetJetton] = useState<JettonData[]>([]);
+  const [getJetton, setGetJetton] = useState<JettonDataType[]>([]);
   const { tg } = useTelegram();
   const slicedAddress = useSlicedAddress(address);
 
@@ -34,10 +33,22 @@ const JettonData = (address: string | null) => {
             jettonInfo.balances &&
             jettonInfo.balances.length > 0
           ) {
-            const jettonData = jettonInfo.balances.sort(
-              (a, b) => parseFloat(b.balance) - parseFloat(a.balance)
-            );
-            setGetJetton(jettonData as unknown as JettonData[]);
+            const jettonData = jettonInfo.balances
+              .sort((a, b) => parseFloat(b.balance) - parseFloat(a.balance))
+              .map((balance) => ({
+                balance: balance.balance,
+                wallet_address: balance.wallet_address,
+                jetton: {
+                  imageError: false,
+                  address: balance.jetton.address,
+                  name: balance.jetton.name,
+                  symbol: balance.jetton.symbol,
+                  decimals: balance.jetton.decimals,
+                  image: balance.jetton.image,
+                },
+              }));
+            setGetJetton(jettonData);
+            console.log(jettonData);
             setLoading(true);
           }
         } catch (error) {
@@ -52,4 +63,4 @@ const JettonData = (address: string | null) => {
   return { loading, getJetton };
 };
 
-export default JettonData;
+export default useJettonData;
