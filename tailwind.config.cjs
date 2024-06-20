@@ -23,6 +23,10 @@ export default {
       spacing: {
         7.5: "30px", // для qrscan-button
       },
+      visibility: {
+        visible: 'visible',
+        invisible: 'invisible',
+      }
     },
   },
   plugins: [forms, typography],

@@ -3,19 +3,16 @@ import AccountInfo from "../components/AccountInfo";
 import "@twa-dev/sdk";
 import { useEffect } from "react";
 import useTelegram from "../hooks/telegram/useTelegram";
-// import GroupList from "../components/Group";
 import { useTonConnect } from "../hooks/telegram/useTonConnect";
 import SettingsButton from "../components/UI/SettingsButton";
 import "../index.css";
-// import { useTranslation } from "react-i18next";
-import JettonList from "../components/JettonsList";
-import NFTList from "../components/NFTList";
+import NFT from "../components/NFT";
 import Group from "../components/Group";
+import Jetton from "../components/JettonsList";
 
 const Home = () => {
   const { tg } = useTelegram();
   const { connected } = useTonConnect();
-  // const { t } = useTranslation();
 
   useEffect(() => {
     tg.ready();
@@ -41,17 +38,11 @@ const Home = () => {
               {/* <TonConnectButton /> */}
               <AccountInfo />
               <Group />
-              <JettonList />
-              <NFTList />
+              <Jetton />
+              <NFT />
             </div>
           </>
         )}
-        {/* <button
-          className="flex p-2.5 rounded-lg border border-black text-lg"
-          onClick={onClose}
-        >
-          {t("close")}
-        </button> */}
       </div>
     </div>
   );

@@ -1,19 +1,5 @@
-import { OrderTypes, SortTypes } from "../../../hooks/sorting/useSortedData";
-import { GroupCatalogItem } from "../../../hooks/sorting/useRemoteData";
 import SortedGroup from "../SortedGroup";
-
-export interface GroupListProps {
-  isListShowed?: boolean;
-  isSortsShowed: boolean;
-  handleToggleMenu: () => void;
-  handleSortByTitle: () => void;
-  sortBy: SortTypes;
-  order: OrderTypes;
-  handleSortByLimit: () => void;
-  handleSortByJoinStatus: () => void;
-  resetFilter: () => void;
-  sortedData?: GroupCatalogItem[];
-}
+import { GroupListProps } from "../../../types/group";
 
 const GroupList = ({
   isListShowed,
